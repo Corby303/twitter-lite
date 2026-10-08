@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Create account{% endblock %}
+{% block content %}
+<section class="card auth-card">
+  <p class="eyebrow">JOIN TWITTER LITE</p><h1>Create your account.</h1><p class="muted">Your next conversation starts here.</p>
+  {% if error %}<div class="notice notice-error" role="alert">{{ error }}</div>{% endif %}
+  <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label for="username">Username</label>
+    <input id="username" name="username" value="{{ username }}" required minlength="3" maxlength="30" autocomplete="username" aria-describedby="username-help">
+    <p class="field-help" id="username-help">3-30 letters, numbers or underscores. Stored in lowercase.</p>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" required minlength="15" maxlength="128" autocomplete="new-password" aria-describedby="password-help">
+    <p class="field-help" id="password-help">15-128 characters. A memorable passphrase works well.</p>
+    <label for="confirm_password">Confirm password</label>
+    <input id="confirm_password" name="confirm_password" type="password" required minlength="15" maxlength="128" autocomplete="new-password">
+    <button class="button button-full" type="submit">Create account</button>
+  </form>
+  <p class="auth-switch">Already have an account? <a href="{{ url_for('auth.login') }}">Sign in</a></p>
+</section>
+{% endblock %}
