@@ -4,14 +4,6 @@ A Python/Flask social-media MVP for the supplied student assessment. It has
 registration, login/logout, a public feed and authenticated post creation.
 Posts display the author, text and UTC creation time, newest first.
 
-**Start with [START_HERE.md](START_HERE.md)** for the Windows/VS Code walkthrough.
-
-This is an AI-assisted reference implementation and draft engineering pack.
-Review the code, adapt the decisions, do your own board work and collect real
-GitHub/Docker evidence. Follow your institution's rules for disclosure; see
-[docs/ai-assistance.md](docs/ai-assistance.md). Generated documents and a local
-test report do not prove that your GitHub board or CI has been used.
-
 ## Technology and scope
 
 - Python 3.12, Flask and Jinja templates; plain HTML/CSS frontend.
