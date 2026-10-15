@@ -1,10 +1,27 @@
-# Create and use the real project board
+# Project board: Twitter Lite MVP
 
 The assignment assesses board management separately from the backlog. A Markdown
 table is useful planning, but it does not replace a real GitHub Project, Trello
 or Jira board with recorded use.
 
-## GitHub Projects setup
+## Existing Project
+
+The Project was created and linked to the repository on 15 October 2026.
+Use this existing board for subsequent work:
+
+- [Kanban board](https://github.com/users/Corby303/projects/5/views/1)
+- [Backlog table](https://github.com/users/Corby303/projects/5/views/2)
+- 14 repository issues, assigned to `Corby303`, with acceptance criteria and tasks.
+- Status: Backlog, To Do, In Progress, Review / Testing, Done.
+- Priority: Must, Should, Could; the current backlog has 13 Must and 1 Should.
+- [Dated board screenshot](evidence/twitter-lite-kanban-2026-10-15.jpg) and
+  [full backlog screenshot](evidence/twitter-lite-backlog-2026-10-15.jpg).
+
+The Project is private. Assessment access must still be confirmed for the
+lecturer. Manual app checks, personal demonstrations and presentation evidence
+remain pending. The steps below are a setup reference for the recorded board.
+
+## GitHub Projects setup reference
 
 1. After creating the repository, create a personal GitHub Project. GitHub's
    [current instructions](https://docs.github.com/en/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)

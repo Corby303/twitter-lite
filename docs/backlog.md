@@ -1,28 +1,29 @@
 # Part C - Prioritized backlog and user stories
 
-**Initial student-review backlog.** All statuses start at Backlog. Reference
-code is supplied in the pack; these statuses do not assert that you implemented
-or reviewed it. Move items when your actual review/adaptation/testing is done.
-Copy the items into issues and connect them to a real project board.
+The 14 backlog items are tracked in [Twitter Lite MVP](https://github.com/users/Corby303/projects/5/views/1), created on
+15 October 2026 and linked to `Corby303/twitter-lite`. All items are assigned to
+`Corby303`; priorities and statuses below match the verified Project fields.
+Statuses reflect current review/adoption and testing of the supplied application.
+Personal/manual checks remain pending until performed.
 
 ## Summary
 
-| ID | Epic / area | Item | Priority | Initial status | Requirements |
+| ID | Epic / area | Item | Priority | Current Project status | Requirements |
 |---|---|---|---|---|---|
-| EN-01 | Foundation | Analyze requirements and confirm assumptions | Must | Backlog | All FR/NFR |
-| EN-02 | Foundation | Adopt architecture and ADRs | Must | Backlog | NFR-06/08/09 |
-| EN-03 | Foundation | Set up repository and board | Must | Backlog | NFR-08 |
-| US-01 | Identity | Register an account | Must | Backlog | FR-01, NFR-01/02 |
-| US-02 | Identity | Sign in | Must | Backlog | FR-02, NFR-02 |
-| US-03 | Identity | Sign out | Must | Backlog | FR-03, NFR-02 |
-| US-04 | Social posts | View the community feed | Must | Backlog | FR-04, NFR-03/04 |
-| US-05 | Social posts | Publish a post | Must | Backlog | FR-05/06, NFR-02/03 |
-| US-06 | Delivery | Preserve users/posts after restart | Must | Backlog | FR-07, NFR-09 |
-| EN-04 | Quality | Verify acceptance and security behavior | Must | Backlog | All FR, NFR-01 to 05 |
-| EN-05 | Delivery | Run the app reproducibly with Docker | Must | Backlog | NFR-06/09 |
-| EN-06 | Delivery | Run automated CI on GitHub | Must | Backlog | NFR-07 |
-| EN-07 | Assessment | Capture evidence and rehearse presentation | Must | Backlog | Submission checklist |
-| US-07 | Social posts | Navigate older feed posts | Should | Backlog | FR-08, NFR-05 |
+| [EN-01](https://github.com/Corby303/twitter-lite/issues/1) | Foundation | Analyze requirements and confirm assumptions | Must | To Do | All FR/NFR |
+| [EN-02](https://github.com/Corby303/twitter-lite/issues/2) | Foundation | Adopt architecture and ADRs | Must | To Do | NFR-06/08/09 |
+| [EN-03](https://github.com/Corby303/twitter-lite/issues/3) | Foundation | Set up repository and board | Must | In Progress | NFR-08 |
+| [US-01](https://github.com/Corby303/twitter-lite/issues/4) | Identity | Register an account | Must | Review / Testing | FR-01, NFR-01/02 |
+| [US-02](https://github.com/Corby303/twitter-lite/issues/5) | Identity | Sign in | Must | Review / Testing | FR-02, NFR-02 |
+| [US-03](https://github.com/Corby303/twitter-lite/issues/6) | Identity | Sign out | Must | Review / Testing | FR-03, NFR-02 |
+| [US-04](https://github.com/Corby303/twitter-lite/issues/7) | Social posts | View the community feed | Must | Review / Testing | FR-04, NFR-03/04 |
+| [US-05](https://github.com/Corby303/twitter-lite/issues/8) | Social posts | Publish a post | Must | Review / Testing | FR-05/06, NFR-02/03 |
+| [US-06](https://github.com/Corby303/twitter-lite/issues/9) | Delivery | Preserve users/posts after restart | Must | Review / Testing | FR-07, NFR-09 |
+| [EN-04](https://github.com/Corby303/twitter-lite/issues/10) | Quality | Verify acceptance and security behavior | Must | Review / Testing | All FR, NFR-01 to 05 |
+| [EN-05](https://github.com/Corby303/twitter-lite/issues/11) | Delivery | Run the app reproducibly with Docker | Must | Review / Testing | NFR-06/09 |
+| [EN-06](https://github.com/Corby303/twitter-lite/issues/12) | Delivery | Run automated CI on GitHub | Must | Done | NFR-07 |
+| [EN-07](https://github.com/Corby303/twitter-lite/issues/13) | Assessment | Capture evidence and rehearse presentation | Must | To Do | Submission checklist |
+| [US-07](https://github.com/Corby303/twitter-lite/issues/14) | Social posts | Navigate older feed posts | Should | Review / Testing | FR-08, NFR-05 |
 
 Each item below includes a description, acceptance criteria and decomposed
 tasks. Priority/status are in the table. Add real assignees and links in GitHub.
@@ -118,7 +119,7 @@ and posts; run feed tests; check layout and keyboard navigation.
 read it.
 
 **Acceptance:** Valid 1-280 character trimmed content is stored and displayed.
-Blank/over-limit content is rejected. Anonymous users cannot publish. Supplying
+Blank, over-limit and NUL-containing content is rejected. Anonymous users cannot publish. Supplying
 someone else's author ID does not change ownership. CSRF is checked.
 
 **Tasks:** Review authorization/validation; inspect parameterized INSERT;
@@ -196,3 +197,15 @@ dataset. All authors remain included. Invalid page input is safe.
 
 **Tasks:** Review LIMIT/OFFSET; test timestamp ties/page boundaries; review
 navigation; measure the first-page performance target.
+
+## Live board and evidence
+
+- [Kanban board](https://github.com/users/Corby303/projects/5/views/1)
+- [Backlog table](https://github.com/users/Corby303/projects/5/views/2)
+- [Kanban screenshot, 15 October 2026](evidence/twitter-lite-kanban-2026-10-15.jpg)
+- [Backlog table screenshot, 15 October 2026](evidence/twitter-lite-backlog-2026-10-15.jpg)
+
+Verified board snapshot: Backlog 0, To Do 3, In Progress 1, Review / Testing 9,
+and Done 1. Priorities: 13 Must and 1 Should. The Project is private; confirm
+assessment access separately. These screenshots record actual board creation
+and configuration, and do not replace continued board use or application demos.
