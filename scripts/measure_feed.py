@@ -45,7 +45,8 @@ def main():
         print(f"Median: {statistics.median(samples):.4f}s; nearest-rank p95: {p95:.4f}s")
         print("Target p95 < 2s:", "PASS" if p95 < 2 else "FAIL")
         print("This is a local rendering check, not a concurrent HTTP load test.")
+        return 0 if p95 < 2 else 1
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

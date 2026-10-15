@@ -36,6 +36,10 @@ def feed():
 @login_required
 def create_post():
     content = request.form.get("content", "").strip()
+    # SQLite length() stops at NUL, so reject it before checking or saving text.
+    if "\x00" in content:
+        flash("Your post contains an unsupported character. Please retype it and try again.", "error")
+        return redirect(url_for("posts.feed"))
     if not 1 <= len(content) <= 280:
         flash("Write a post with 1-280 characters. A blank post cannot be published.", "error")
         return redirect(url_for("posts.feed"))

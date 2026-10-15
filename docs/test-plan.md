@@ -14,14 +14,14 @@ virtual-environment interpreter.
 | FR-03 logout | `test_login_and_logout_change_authentication_state`, `test_logout_requires_post` |
 | FR-04 all-user feed/order | `test_feed_contains_all_users_and_is_newest_first`, `test_post_is_persisted_and_shows_author_text_and_utc_date`, pagination tie test |
 | FR-05 authorization | `test_unauthenticated_user_cannot_create_post`, `test_post_author_is_taken_from_session`, deleted-user session test |
-| FR-06 post validation | `test_invalid_posts_are_not_saved`, `test_post_boundaries_and_unicode_are_supported` |
+| FR-06 post validation | `test_invalid_posts_are_not_saved`, `test_posts_with_nul_are_rejected_without_breaking_feed`, `test_post_boundaries_and_unicode_are_supported` |
 | FR-07 persistence | `test_users_posts_and_login_survive_application_recreation`; actual Docker recreation in `scripts/docker_smoke.py` |
 | FR-08 pagination | `test_pagination_preserves_order_and_can_reach_older_posts`, invalid page parameter cases |
 | NFR-01 password security | Argon2 hash verification/settings and distinct-salts tests |
 | NFR-02 sessions/CSRF | Missing/fake token tests, cookie flag test, no password echo, logout/session tests |
 | NFR-03 injection safety | Escaped script/SQL text test, failed SQL-injection login case, foreign key and author ownership tests |
 | NFR-04 usability | Manual browser/keyboard checklist below; automated tests alone do not establish accessibility |
-| NFR-05 performance | `scripts/measure_feed.py`; record machine and observed median/p95 |
+| NFR-05 performance | `scripts/measure_feed.py`; record machine and observed median/p95; `test_benchmark_cli_exit_status_matches_target` checks success and failure exit statuses |
 | NFR-06 Docker setup | Clean checkout/manual Docker run, Compose health check and HTTP smoke script |
 | NFR-07 CI | Actual GitHub Actions run URL and commit SHA |
 | NFR-08 maintainability | Human code/diff/doc review, traceability and real meaningful commits |
@@ -55,7 +55,9 @@ Do not assume client-side checks replace validation on the server.
 20 sequential first-page GET requests with Flask's test client. Each response
 must contain 20 posts. It reports median and nearest-rank p95; target is p95
 below two seconds. This excludes network latency and does not simulate concurrent
-users. Separately demonstrate actual HTTP/container responsiveness.
+users. The script exits with status 0 when the target is met and status 1 when
+the p95 is two seconds or more. Tests simulate fast, boundary and slow timings
+without sleeping. Separately demonstrate actual HTTP/container responsiveness.
 
 ## Failure handling
 

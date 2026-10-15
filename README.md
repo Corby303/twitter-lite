@@ -142,6 +142,8 @@ Do not run it during a presentation if stopping the app would interrupt you.
 To measure the local feed target: `python scripts/measure_feed.py` using your
 virtual-environment interpreter. It uses a temporary database and reports a
 small sequential benchmark, not concurrent load capacity.
+It exits with status 0 when p95 is below two seconds, or status 1 when the
+target is missed.
 
 ## CI
 

@@ -20,7 +20,7 @@ demonstration. The assessment allows a solo student or a team of up to two.
 | FR-03 | Sign out. | Must | A signed-in user can submit Sign out. Their browser session loses its user ID and a later publish request requires sign-in. Logout is POST with a valid CSRF token. |
 | FR-04 | Show posts from all users. | Must | The public feed contains every author's posts across its pages. Every post displays username, escaped text and UTC creation date/time. Sort by creation timestamp descending, then ID descending for ties. |
 | FR-05 | Restrict publishing to authenticated users. | Must | An unauthenticated publish request with a valid form token redirects to sign-in and stores no post. The author comes from the session, ignoring a supplied author ID. |
-| FR-06 | Publish a text post. | Must | A signed-in user can submit 1-280 characters after trimming leading/trailing whitespace. The post is saved and appears at the top of the feed. Empty, whitespace-only and over-limit content creates no post and shows a message. |
+| FR-06 | Publish a text post. | Must | A signed-in user can submit 1-280 characters after trimming leading/trailing whitespace. The post is saved and appears at the top of the feed. Empty, whitespace-only, over-limit or NUL-containing content creates no post and shows a message. |
 | FR-07 | Preserve accounts and posts. | Must | After ordinary app/container restart, and after container removal/recreation with the same named volume retained, the account can sign in and its existing post remains visible. |
 | FR-08 | Navigate a paginated feed. | Should | Each page contains at most 20 posts. Older/Newer links reach the remaining posts in the same global order. Invalid page input is handled safely. |
 

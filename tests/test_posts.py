@@ -49,6 +49,23 @@ def test_invalid_posts_are_not_saved(app, auth, content):
         assert get_db().execute("SELECT COUNT(*) FROM posts").fetchone()[0] == 0
 
 
+@pytest.mark.parametrize("content", ["\x00", "\x00hello", "hello\x00world", "hello\x00"])
+def test_posts_with_nul_are_rejected_without_breaking_feed(app, auth, content):
+    auth.register()
+    auth.login()
+    response = auth.post(content)
+    assert response.status_code == 200
+    assert b"unsupported character" in response.data
+    with app.app_context():
+        assert get_db().execute("SELECT COUNT(*) FROM posts").fetchone()[0] == 0
+
+    response = auth.post("A valid post after rejected input")
+    assert response.status_code == 200
+    assert b"A valid post after rejected input" in response.data
+    with app.app_context():
+        assert get_db().execute("SELECT COUNT(*) FROM posts").fetchone()[0] == 1
+
+
 @pytest.mark.parametrize("content", ["a", "a" * 280, "Hello, 世界 👋"])
 def test_post_boundaries_and_unicode_are_supported(app, auth, content):
     auth.register()
